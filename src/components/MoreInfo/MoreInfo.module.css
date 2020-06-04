@@ -1,0 +1,52 @@
+.card {
+  width: 600px;
+  height: 300px;
+  box-shadow: 0px 4px 10px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+    border-radius: 10px;
+  margin: 0 auto;
+}
+.title{
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.contentWrapper{
+  display: flex;
+  justify-content: space-around;
+}
+.dataWrapper{
+  width: 45%;
+  padding-left: 10px;
+}
+
+.dataWrapper > p:not(:last-child){
+  margin-bottom: 10px;
+}
+
+.imageWrapper{
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.weatherIcon{
+  width: 200px;
+}
+.returnButton{
+  padding: 5px 10px;
+  font-size: 20px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+.returnButton:hover{
+  color: #2600c1;
+  /*transform: scale(1.1);*/
+}
+.bold{
+  font-weight: bold;
+  margin-right: 10px;
+}
