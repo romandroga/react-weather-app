@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
+// Styles
 import {
   searchForm,
   searchFormWrapper,
@@ -21,6 +21,7 @@ export default class SearchForm extends Component {
     e.preventDefault();
     const { query } = this.state;
     this.props.onSubmit(query);
+    this.setState({ query: '' });
   };
 
   handleChange = ({ target }) => {
@@ -37,12 +38,13 @@ export default class SearchForm extends Component {
             type="text"
             value={query}
             onChange={this.handleChange}
-            placeholder="Movies..."
+            placeholder="Add city..."
           />
-          <button type="submit" className={searchFormButton} />
+          <button type="submit" className={searchFormButton}>
+            &#9733;
+          </button>
         </div>
       </form>
     );
   }
 }
-

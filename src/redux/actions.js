@@ -4,11 +4,8 @@ export const ActionTypes = {
   ADD_QUERY: 'ADD_QUERY',
   ADD_CITIES: 'ADD_CITIES',
   MORE_INFO: 'MORE_INFO',
+  DELETE_CARD: 'DELETE_CARD',
 };
-
-export const fetchStart = data => ({
-  type: ActionTypes.FETCH_START,
-});///////////////////////////////////////////
 
 export const fetchSuccess = data => ({
   type: ActionTypes.FETCH_SUCCESS,
@@ -22,10 +19,15 @@ export const addQuery = data => ({
 
 export const addCities = array => ({
   type: ActionTypes.ADD_CITIES,
-  payload: array
-})
+  payload: array,
+});
 
 export const moreInfo = data => ({
   type: ActionTypes.MORE_INFO,
-  payload: data
-})
+  payload: data,
+});
+
+export const deleteCard = data => ({
+  type: ActionTypes.DELETE_CARD,
+  payload: data,
+});

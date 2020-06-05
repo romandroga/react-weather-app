@@ -1,36 +1,42 @@
 import React, { Component } from 'react';
-import { fetchWeatherByName } from '../../redux/operations';
 import { connect } from 'react-redux';
+// Utilities
+import { fetchWeatherByName } from '../../redux/operations';
 import * as actions from '../../redux/actions';
+import { v4 as uuidv4 } from 'uuid';
 // Components
 import Card from '../../components/Card/Card';
-import { gallery } from './HomePage.module.css';
 import SearchForm from '../../components/SearchForm/SearchForm';
+// Styles
+import { gallery } from './HomePage.module.css';
 
 class HomePage extends Component {
   componentDidMount() {
+    const { addCities } = this.props;
     const previousCities = JSON.parse(localStorage.getItem('cities'));
-    if (!!previousCities.length) {
-      this.props.addCities(previousCities);
-    }
+
+    if (!previousCities) return;
+
+    addCities(previousCities);
   }
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.state.query !== this.props.state.query) {
 
-      this.props.onLoad(this.props.state.query);
+  componentDidUpdate(prevProps) {
+    const { cities, query, onLoad } = this.props;
 
-      localStorage.setItem('cities', JSON.stringify(this.props.state.cities));
-    }
+    localStorage.setItem('cities', JSON.stringify(Array.from(new Set(cities))));
+
+    if (prevProps.query === query) return;
+
+    onLoad(query);
   }
 
   render() {
-    const { cities } = this.props.state;
+    const { cities, onSubmit } = this.props;
     return (
       <>
-        <SearchForm onSubmit={this.props.onSubmit} />
+        <SearchForm onSubmit={onSubmit} />
         <ul className={gallery}>
-          {cities.length !== 0 &&
-            cities.map(city => <Card key={city.id} city={city} />)}
+          {!!cities && cities.map(city => <Card key={uuidv4()} city={city} />)}
         </ul>
       </>
     );
@@ -38,7 +44,8 @@ class HomePage extends Component {
 }
 
 const mapStateToProps = state => ({
-  state: state,
+  cities: state.cities,
+  query: state.query,
 });
 
 const mapDispatchToProps = {

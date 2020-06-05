@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import MoreInfo from '../../components/MoreInfo/MoreInfo';
+// Utilities
 import { fetchWeatherById } from '../../redux/operations';
-import {wrapper} from './MoreInfoPage.module.css'
+// Components
+import MoreInfo from '../../components/MoreInfo/MoreInfo';
+// Styles
+import { wrapper } from './MoreInfoPage.module.css';
 
 export class MoreInfoPage extends Component {
   componentDidMount() {
-    this.props.fetchWeather(this.props.match.params.id);
+    const { fetchWeather, match } = this.props;
+    fetchWeather(match.params.id);
   }
 
   render() {
-    console.log(this.props);
+    const { moreInfoData } = this.props;
     return (
       <div className={wrapper}>
-        {this.props.moreInfoData && <MoreInfo data={this.props.moreInfoData} />}
+        {moreInfoData && <MoreInfo data={moreInfoData} />}
       </div>
     );
   }
