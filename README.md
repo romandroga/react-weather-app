@@ -2,13 +2,13 @@
 
 This is a weather application that allows you to keep track of the weather in your favorite cities.
 
-[Demo](https://romandroga.netlify.app/) поменять
+##[Demo](https://romandroga-weather-app.netlify.app/)
 
 
 # Get Started
 
 - clone branch `master` with
-  `git clone ///////путь` or fork it and then
+  `git clone https://github.com/romandroga/react-weather-app.git` or fork it and then
   clone it from your forked repo
 - `cd react-weather-app`
 - `npm install`
