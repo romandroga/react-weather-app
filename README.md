@@ -1,10 +1,16 @@
-# Weather App <img src="https://img1.freepng.ru/20180401/tvw/kisspng-weather-forecasting-computer-icons-android-cloudy-5ac06fdd33f648.6761569115225609892129.jpg" width="100">
-
+# Weather App [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 This is a weather application that allows you to keep track of the weather in your favorite cities.
+You can manage this list (add or delete a city), and when you click on the card you can see detailed weather information
+#[Demo](https://romandroga-weather-app.netlify.app/)
+![Weather App Demo](demo/demo.gif)
 
-##[Demo](https://romandroga-weather-app.netlify.app/)
-
-
+#Technology used
+- React
+- React-router
+- Redux
+- Redux-thunk
+- Redux-devtools
+- axios
 # Get Started
 
 - clone branch `master` with
@@ -13,5 +19,8 @@ This is a weather application that allows you to keep track of the weather in yo
 - `cd react-weather-app`
 - `npm install`
 - `npm start`
+
+# License
+This project is licensed under the MIT License - see the LICENSE.md file for details
 
 
