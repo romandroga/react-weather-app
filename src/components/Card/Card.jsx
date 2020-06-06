@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
 // Utilities
 import { getRequest } from '../../redux/operations';
-import * as actions from '../../redux/actions';
 // Styles
 import {
   card,
@@ -40,24 +38,25 @@ class Card extends Component {
   };
 
   render() {
+    const { data } = this.state;
     return (
       <>
-        {this.state.data && (
+        {data && (
           <div className={cardWrapper}>
-            <Link to={`/${this.state.data.id}`}>
-              <li key={this.state.data.id} className={card}>
+            <Link to={`/forecast/${data.id}`}>
+              <li key={data.id} className={card}>
                 <img
-                  src={`http://openweathermap.org/img/wn/${this.state.data.weather[0].icon}@4x.png`}
+                  src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`}
                   alt="weather"
                 />
-                <p className={cardName}>{this.state.data.name}</p>
-                <p>{Math.floor(this.state.data.main.temp)}°C</p>
+                <p className={cardName}>{data.name}</p>
+                <p>{Math.floor(data.main.temp)}°C</p>
               </li>
             </Link>
             <div className={buttonsWrapper}>
               <button
                 className={deleteButton}
-                onClick={() => this.props.onDelete(this.state.data.name)}
+                onClick={() => this.props.onDelete(data.name)}
               >
                 &#128465;
               </button>
@@ -72,8 +71,4 @@ class Card extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  onDelete: data => dispatch(actions.deleteCard(data)),
-});
-
-export default connect(null, mapDispatchToProps)(Card);
+export default Card;

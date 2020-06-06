@@ -15,6 +15,11 @@ export const fetchWeatherByName = query => dispatch => {
 export const getRequest = cityName => {
   return axios.get(`${BASE_URL}?q=${cityName}&appid=${API_KEY}&units=metric`);
 };
+export const getRequestById = id => {
+  return axios.get(
+    `https://api.openweathermap.org/data/2.5/forecast?id=${id}&appid=${API_KEY}&units=metric`,
+  );
+};
 
 export const fetchWeatherById = id => dispatch => {
   return axios

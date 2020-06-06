@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 // Utilities
-import { fetchWeatherByName } from '../../redux/operations';
-import * as actions from '../../redux/actions';
 import { v4 as uuidv4 } from 'uuid';
 // Components
-import Card from '../../components/Card/Card';
+import Card from '../../components/Card/CardContainer';
 import SearchForm from '../../components/SearchForm/SearchForm';
 // Styles
 import { gallery } from './HomePage.module.css';
@@ -23,7 +20,7 @@ class HomePage extends Component {
   componentDidUpdate(prevProps) {
     const { cities, query, onLoad } = this.props;
 
-    localStorage.setItem('cities', JSON.stringify(Array.from(new Set(cities))));
+    localStorage.setItem('cities', JSON.stringify(cities));
 
     if (prevProps.query === query) return;
 
@@ -43,15 +40,4 @@ class HomePage extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  cities: state.cities,
-  query: state.query,
-});
-
-const mapDispatchToProps = {
-  onLoad: fetchWeatherByName,
-  onSubmit: actions.addQuery,
-  addCities: actions.addCities,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+export default HomePage;
