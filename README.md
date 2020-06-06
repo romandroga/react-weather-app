@@ -4,7 +4,7 @@ You can manage this list (add or delete a city), and when you click on the card 
 #[Demo](https://romandroga-weather-app.netlify.app/)
 ![Weather App Demo](demo/demo.gif)
 
-#Technology used
+##Technology used
 - React
 - React-router
 - Redux
