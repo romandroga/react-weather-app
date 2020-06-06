@@ -1,16 +1,20 @@
 # Weather App [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 This is a weather application that allows you to keep track of the weather in your favorite cities.
 You can manage this list (add or delete a city), and when you click on the card you can see detailed weather information
+
 #[Demo](https://romandroga-weather-app.netlify.app/)
+
 ![Weather App Demo](demo/demo.gif)
 
-##Technology used
+#Technology used
+
 - React
 - React-router
 - Redux
 - Redux-thunk
 - Redux-devtools
 - axios
+
 # Get Started
 
 - clone branch `master` with
