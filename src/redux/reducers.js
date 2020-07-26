@@ -1,7 +1,10 @@
 import { combineReducers } from 'redux';
 import * as actions from './actions';
 
-const citiesReducer = (state = [], { type, payload }) => {
+const citiesReducer = (
+  state = ['Minsk', 'Kyiv', 'Kharkiv'],
+  { type, payload },
+) => {
   switch (type) {
     case actions.ActionTypes.FETCH_SUCCESS:
       if (state.includes(payload.name)) return state;
